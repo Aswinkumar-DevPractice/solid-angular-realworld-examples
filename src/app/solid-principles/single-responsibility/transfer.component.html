@@ -1,0 +1,28 @@
+<div class="flex items-center justify-center min-h-screen bg-gray-100">
+    <div class="bg-white p-6 rounded shadow-lg w-80">
+        <h2>Fund Transfer (SRP Example)</h2>
+
+<form class="bg-white  rounded px-8 pt-6 pb-8 mb-4 max-w-sm" (ngSubmit)="onSubmit($event)" #transferForm="ngForm">
+    <div class="mb-4">
+     <label class="block text-gray-700 text-sm font-bold mb-2">From Account:</label>
+     <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500" type="text" [value]="fromAccount()" (input)="fromAccount.set($any($event.target).value)" required>
+    </div>
+    <div class="mb-4">
+      <label class="block text-gray-700 text-sm font-bold mb-2">To Account:</label>
+    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500" type="text" [value]="toAccount()" (input)="toAccount.set($any($event.target).value)" required>
+    </div>
+ <div class="mb-4">
+<label class="block text-gray-700 text-sm font-bold mb-2">Amount:</label>
+    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500" type="number" [value]="amount()" (input)="amount.set($any($event.target).value)" required>
+ </div>
+    
+     <div class="flex items-center justify-center">
+    <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:ring-4 focus:ring-blue-300" type="submit">Transfer</button>
+  </div>
+
+</form>
+<p *ngIf="message()">{{message()}}</p>
+    </div>
+
+
+</div>
